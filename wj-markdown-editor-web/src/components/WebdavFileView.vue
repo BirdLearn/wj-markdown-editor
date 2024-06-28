@@ -6,7 +6,7 @@
     <div class="horizontal-vertical-center"><a-button type="link" size="small" @click="logout">退出</a-button></div>
   </div>
   <div class="container wj-scrollbar-small" v-loading="loading">
-    <div class="file" v-for="(item, index) in fileList" :key="index" @click="handleFileClick(item)">
+    <div class="file" v-for="(item, index) in fileList" :key="index" @click="handleFileClick(item)" v-show="item.type === 'directory' || isMdFile(item.basename)">
       <div class="horizontal-vertical-center">
         <img :src="folderImg" v-if="item.type === 'directory'" alt="" class="icon">
         <img :src="markdownImg" v-else-if="isMdFile(item.basename)" alt="" class="icon">
@@ -36,6 +36,7 @@ const loading = ref(false)
 const refresh = async () => {
   loading.value = true
   fileList.value = await nodeRequestUtil.webdavGetDirectoryContents(currentPath.value)
+  console.log(fileList.value)
   loading.value = false
 }
 const handleBack = async () => {
@@ -102,8 +103,8 @@ watch(() => store.state.openWebdavPath, (newValue, oldValue) => {
   }
 }
 .container {
-  height: 100%;
-  overflow: auto;
+  height: calc(100% - 35px);
+  overflow: scroll;
   padding: 5px 0;
   width: 100%;
   display: flex;
