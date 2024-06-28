@@ -85,9 +85,9 @@ export default {
     },
     checkUpdate: () => {
         if (app.isPackaged) {
-            axios.get('https://api.github.com/repos/nlbwqmz/wj-markdown-editor/releases/latest').then((res) => {
+            axios.get('https://api.github.com/repos/BirdLearn/wj-markdown-editor/releases/latest').then((res) => {
                 const versionLatest = res.data.tag_name
-                autoUpdater.setFeedURL(`https://github.com/nlbwqmz/wj-markdown-editor/releases/download/${versionLatest}`)
+                autoUpdater.setFeedURL(`https://github.com/BirdLearn/wj-markdown-editor/releases/download/${versionLatest}`)
                 autoUpdater.checkForUpdates().then(res => {
                     if(res && res.updateInfo && res.updateInfo.version && util.compareVersion(res.updateInfo.version, app.getVersion()) === 1){
                         aboutWin.sendMessageToAbout('messageToAbout', {finish: true, success: true, version: res.updateInfo.version})
