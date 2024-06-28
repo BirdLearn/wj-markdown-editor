@@ -56,7 +56,9 @@
       ],
       "fileAssociations": [
         {
-          "ext": ["md"],
+          "ext": [
+            "md"
+          ],
           "name": "Markdown File"
         }
       ]
@@ -65,7 +67,9 @@
       "icon": "./icon",
       "category": "Utility",
       "artifactName": "${productName}-${platform}-${arch}-${version}.${ext}",
-      "mimeTypes": ["text/markdown"],
+      "mimeTypes": [
+        "text/markdown"
+      ],
       "target": [
         {
           "target": "deb"
@@ -76,7 +80,9 @@
       ],
       "fileAssociations": [
         {
-          "ext": ["md"],
+          "ext": [
+            "md"
+          ],
           "mimeType": "text/markdown",
           "name": "Markdown File"
         }
@@ -85,13 +91,13 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "electron": "^29.0.0",
     "electron-builder": "^24.9.1"
   },
   "dependencies": {
     "axios": "^1.6.7",
     "croner": "^8.0.1",
     "crypto": "^1.0.1",
+    "electron": "^29.4.2",
     "electron-screenshots": "^0.5.26",
     "electron-updater": "^6.1.8",
     "nanoid": "^5.0.6",

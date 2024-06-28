@@ -8,7 +8,7 @@
                @compositionend="onCompositionEnd"
                @on-upload-img="onUploadImg"
                no-img-zoom-in
-               :toolbarsExclude="['pageFullscreen', 'fullscreen', 'htmlPreview', 'github', 'image']"
+               :toolbarsExclude="['pageFullscreen', 'github', 'image']"
                :md-heading-id="commonUtil.mdHeadingId"
                :preview-theme="config.previewTheme"
                :code-theme="config.codeTheme"
