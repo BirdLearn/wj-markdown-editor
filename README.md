@@ -1,3 +1,8 @@
+# 说明
+本仓库fork自[wj-markdown-editor](https://github.com/nlbwqmz/wj-markdown-editor)，仅基于自己的需求和体验进行优化，感谢原作者提供优秀的项目。
+
+> 以下为原仓库Readme
+
 # wj-markdown-editor
 
 [源码地址](https://github.com/nlbwqmz/wj-markdown-editor)
