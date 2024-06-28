@@ -69,7 +69,7 @@ config({
     }
   },
   editorExtensions: {
-    iconfont: './lib/font_2605852_prouiefeic.js',
+    // iconfont: './lib/font_2605852_prouiefeic.js',
     screenfull: { js: './lib/screenfull.min.js' },
     highlight: {
       js: './lib/highlight.min.js',

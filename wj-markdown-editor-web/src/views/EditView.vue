@@ -1,26 +1,18 @@
 <template>
   <div style="height: 100%">
-    <md-editor v-model="content" ref="editorRef" style="width: 100%; height: 100%"
-               :editorId="editorId"
-               @onSave="onSave"
-               @onChange="onChange"
-               @compositionstart="onCompositionStart"
-               @compositionend="onCompositionEnd"
-               @on-upload-img="onUploadImg"
-               no-img-zoom-in
-               :toolbarsExclude="['pageFullscreen', 'github', 'image']"
-               :md-heading-id="commonUtil.mdHeadingId"
-               :preview-theme="config.previewTheme"
-               :code-theme="config.codeTheme"
-    ></md-editor>
+    <md-editor v-model="content" ref="editorRef" previewOnly style="width: 100%; height: 100%" :editorId="editorId"
+      @onSave="onSave" @onChange="onChange" @compositionstart="onCompositionStart" @compositionend="onCompositionEnd"
+      @on-upload-img="onUploadImg" no-img-zoom-in :toolbarsExclude="['pageFullscreen', 'github', 'image']" :md-heading-id="commonUtil.mdHeadingId" :preview-theme="config.previewTheme" :code-theme="config.codeTheme" />
   </div>
 
-  <a-modal v-model:open="networkImgModal" title="网络图片" ok-text="确认" cancel-text="取消" @ok="handleNetworkImgModalOk" centered :maskClosable="false" :ok-button-props="{ disabled: networkImgModalOkDisabled }">
-    <a-input v-model:value="imgUrl" placeholder="网络图片地址" :status="imgUrlInputStatus" allow-clear/>
+  <a-modal v-model:open="networkImgModal" title="网络图片" ok-text="确认" cancel-text="取消" @ok="handleNetworkImgModalOk"
+    centered :maskClosable="false" :ok-button-props="{ disabled: networkImgModalOkDisabled }">
+    <a-input v-model:value="imgUrl" placeholder="网络图片地址" :status="imgUrlInputStatus" allow-clear />
   </a-modal>
 
   <a-dropdown placement="left">
-    <a-float-button type="default" class="float-button" style="right: 50px; bottom: 150px" description="图片" shape="square">
+    <a-float-button type="default" class="float-button" style="right: 50px; bottom: 150px" description="图片"
+      shape="square">
       <template #icon>
         <img :src="iconImg" alt="img" style="width: 20px;">
       </template>
@@ -41,7 +33,8 @@
   </a-dropdown>
 
   <a-dropdown placement="left">
-    <a-float-button type="default" class="float-button" style="right: 50px; bottom: 100px" description="截图" shape="square">
+    <a-float-button type="default" class="float-button" style="right: 50px; bottom: 100px" description="截图"
+      shape="square">
       <template #icon>
         <ScissorOutlined />
       </template>
@@ -58,7 +51,8 @@
     </template>
   </a-dropdown>
 
-  <a-float-button type="default" class="float-button" @click="toPreview" style="right: 50px" description="预览" v-if="config.jumpRouterBtn" shape="square">
+  <a-float-button type="default" class="float-button" @click="toPreview" style="right: 50px" description="预览"
+    v-if="config.jumpRouterBtn" shape="square">
     <template #icon>
       <EyeOutlined />
     </template>
@@ -77,9 +71,6 @@ import commonUtil from '@/util/commonUtil'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const id = commonUtil.getUrlParam('id')
-// import { message } from 'ant-design-vue'
-// import { EditorView } from '@codemirror/view'
-// import { openSearchPanel, SearchCursor } from '@codemirror/search'
 const handleChange = ref(true)
 const content = ref('')
 const editorRef = ref()
@@ -199,7 +190,7 @@ onMounted(async () => {
       editorRef.value?.resetHistory()
     })
   } else {
-    router.push({ path: '/notFound', query: { id } }).then(() => {})
+    router.push({ path: '/notFound', query: { id } }).then(() => { })
   }
 })
 
